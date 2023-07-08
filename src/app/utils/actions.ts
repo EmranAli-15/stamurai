@@ -18,6 +18,7 @@ const deleteTask = (title: string) => {
                 remainingTasks = storedTask.filter((task: any) => task.title !== title)
         }
         localStorage.setItem('tasks', JSON.stringify(remainingTasks));
+        return true;
 }
 
 export { addTask, deleteTask };

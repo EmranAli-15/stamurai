@@ -12,6 +12,7 @@ const Cards = () => {
                 status: string;
         }
         const [tasks, setTasks] = useState([]);
+        const [update, setUpdate] = useState(0);
 
         useEffect(() => {
                 const tasks = localStorage.getItem('tasks');
@@ -20,7 +21,7 @@ const Cards = () => {
                         array = JSON.parse(tasks);
                         setTasks(array);
                 }
-        }, [])
+        }, [update])
 
         const deleteTasks = (title: string) => {
                 Swal.fire({
@@ -33,12 +34,21 @@ const Cards = () => {
                         confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                         if (result.isConfirmed) {
-                                deleteTask(title);
+                                const status = deleteTask(title);
                                 Swal.fire(
                                         'Deleted!',
                                         'Your file has been deleted.',
                                         'success'
                                 )
+
+                                // this logic will help to re-render home page after delete a data.
+                                if (status === true) {
+                                        if (update === 0) {
+                                                setUpdate(1);
+                                        } else {
+                                                setUpdate(0);
+                                        }
+                                }
                         }
                 })
         }
