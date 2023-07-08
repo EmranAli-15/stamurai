@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 import { usePathname } from 'next/navigation'
 
+// The purpose of this page is highlight the link for better user experience
+
 const ActiveLink = ({ path, children }: any) => {
 
         const pathName = usePathname();
