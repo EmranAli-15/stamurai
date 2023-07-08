@@ -10,4 +10,14 @@ const addTask = (item: {}) => {
         localStorage.setItem('tasks', JSON.stringify(storedTask));
 }
 
-export { addTask };
+const deleteTask = (title: string) => {
+        let remainingTasks = [];
+        const getItemsFromStorage = localStorage.getItem('tasks');
+        if (getItemsFromStorage) {
+                const storedTask = JSON.parse(getItemsFromStorage);
+                remainingTasks = storedTask.filter((task: any) => task.title !== title)
+        }
+        localStorage.setItem('tasks', JSON.stringify(remainingTasks));
+}
+
+export { addTask, deleteTask };

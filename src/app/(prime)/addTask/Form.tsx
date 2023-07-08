@@ -2,6 +2,7 @@
 import { addTask } from '@/app/utils/actions';
 import React from 'react';
 import { useForm, SubmitHandler } from "react-hook-form"
+import Swal from 'sweetalert2';
 
 type Inputs = {
         title: string
@@ -18,9 +19,13 @@ const Form = () => {
                 reset
         } = useForm<Inputs>()
         const onSubmit: SubmitHandler<Inputs> = (data) => {
-                console.log(data)
                 addTask(data);
                 reset();
+                Swal.fire(
+                        'Good job!',
+                        'You clicked the button!',
+                        'success'
+                      )
         }
 
         return (
