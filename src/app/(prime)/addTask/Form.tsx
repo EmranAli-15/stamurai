@@ -1,16 +1,12 @@
 'use client'
+import { addTask } from '@/app/utils/actions';
 import React from 'react';
 import { useForm, SubmitHandler } from "react-hook-form"
 
-enum GenderEnum {
-        female = "female",
-        male = "male",
-        other = "other",
-}
 type Inputs = {
         title: string
         description: string
-        gender: GenderEnum
+        status: string
 }
 
 const Form = () => {
@@ -19,9 +15,12 @@ const Form = () => {
                 register,
                 handleSubmit,
                 formState: { errors },
+                reset
         } = useForm<Inputs>()
         const onSubmit: SubmitHandler<Inputs> = (data) => {
                 console.log(data)
+                addTask(data);
+                reset();
         }
 
         return (
@@ -45,7 +44,7 @@ const Form = () => {
                         </div>
 
                         <div>
-                                <select {...register("gender")} className="select select-bordered select-sm w-full max-w-xs">
+                                <select {...register("status")} className="select select-bordered select-sm w-full max-w-xs">
                                         <option value="To Do">To Do</option>
                                         <option value="In Progress">In Progress</option>
                                         <option value="Completed">Completed</option>
