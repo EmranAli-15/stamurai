@@ -12,6 +12,8 @@ const addTask = (item: {}) => {
         localStorage.setItem('tasks', JSON.stringify(storedTask));
 }
 
+
+// This function find out the target task which you want to update
 const getSingleTask = (title: string) => {
         const getItemsFromStorage = localStorage.getItem('tasks');
         if (getItemsFromStorage) {

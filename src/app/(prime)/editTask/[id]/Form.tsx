@@ -11,7 +11,8 @@ type Inputs = {
 }
 
 const Form = ({ params }: any) => {
-        const getTask = getSingleTask(params.id);
+        const decoded = decodeURIComponent(params.id);
+        const getTask = getSingleTask(decoded);
 
         const {
                 register,

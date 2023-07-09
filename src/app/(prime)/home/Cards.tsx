@@ -65,7 +65,7 @@ const Cards = () => {
                                                         <hr />
                                                         <div className='flex justify-between items-center'>
                                                                 <div>
-                                                                        <Link href={`editTask/${task.title}`}>
+                                                                        <Link href={`editTask/${encodeURIComponent(task.title)}`}>
                                                                                 <button>
                                                                                         <FaEdit size={20} className='text-blue-400'></FaEdit>
                                                                                 </button>
