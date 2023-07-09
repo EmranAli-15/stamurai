@@ -1,10 +1,9 @@
-const getItemsFromStorage = localStorage.getItem('tasks');
-
 // bellow this variable is used for find index of the array. When you update an data then this data will not change index in that array.
-let titleForUpdate = '';
+let titleForUpdate: string | null = null;
 
 const addTask = (item: {}) => {
         let storedTask = [];
+        const getItemsFromStorage = localStorage.getItem('tasks');
         if (getItemsFromStorage) {
                 storedTask = JSON.parse(getItemsFromStorage);
         }
@@ -14,6 +13,7 @@ const addTask = (item: {}) => {
 }
 
 const getSingleTask = (title: string) => {
+        const getItemsFromStorage = localStorage.getItem('tasks');
         if (getItemsFromStorage) {
                 titleForUpdate = title
                 const storedTask = JSON.parse(getItemsFromStorage);
@@ -24,6 +24,7 @@ const getSingleTask = (title: string) => {
 
 const editAndUpdate = (task: {}) => {
         let storedTask = [];
+        const getItemsFromStorage = localStorage.getItem('tasks');
         if (getItemsFromStorage) {
                 storedTask = JSON.parse(getItemsFromStorage);
         }
@@ -34,6 +35,7 @@ const editAndUpdate = (task: {}) => {
 
 const deleteTask = (title: string) => {
         let remainingTasks = [];
+        const getItemsFromStorage = localStorage.getItem('tasks');
         if (getItemsFromStorage) {
                 const storedTask = JSON.parse(getItemsFromStorage);
                 remainingTasks = storedTask.filter((task: any) => task.title !== title)

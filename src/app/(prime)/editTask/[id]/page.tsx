@@ -16,7 +16,7 @@ const page = ({ params }: any) => {
         const {
                 register,
                 handleSubmit,
-                formState: { errors }
+                formState: { errors },
         } = useForm<Inputs>()
         const onSubmit: SubmitHandler<Inputs> = (data) => {
                 editAndUpdate(data);
@@ -32,7 +32,7 @@ const page = ({ params }: any) => {
                         <div>
                                 {errors.title?.type === "required" && (<p className='text-red-500'>required</p>)}
                                 <input
-                                        defaultValue={getTask.title}
+                                        defaultValue={getTask?.title}
                                         type="text"
                                         placeholder="Type here"
                                         className="input input-bordered input-info w-full block"
@@ -44,7 +44,7 @@ const page = ({ params }: any) => {
                         <div className='my-4'>
                                 {errors.description?.type === "required" && (<p className='text-red-500'>required</p>)}
                                 <textarea
-                                        defaultValue={getTask.description}
+                                        defaultValue={getTask?.description}
                                         placeholder="Type here"
                                         className="textarea textarea-info w-full block"
                                         {...register("description", { required: true })}
@@ -54,7 +54,7 @@ const page = ({ params }: any) => {
 
                         <div>
                                 <select {...register("status")} className="select select-bordered select-sm w-full max-w-xs">
-                                        <option value={getTask.status} disabled hidden selected>{getTask.status}</option>
+                                        <option value={getTask?.status} disabled hidden selected>{getTask?.status}</option>
                                         <option value="To Do">To Do</option>
                                         <option value="In Progress">In Progress</option>
                                         <option value="Completed">Completed</option>
