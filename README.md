@@ -7,3 +7,12 @@
  * Then write this command ``` 'npm run dev' ```
  * You got a link like : ``` http://localhost:3000 ```
  * Copy that link and past your browser.
+
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact Information](#contact-information)
+- [Acknowledgements](#acknowledgements)
