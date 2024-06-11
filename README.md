@@ -18,4 +18,4 @@
 - [Acknowledgements](#acknowledgements)
 
 
-[[Copy Installation Code](https://img.shields.io/badge/copy-installation_code-green)](#installation)
+[![Copy Installation Code](https://img.shields.io/badge/copy-installation_code-green)](#installation)
